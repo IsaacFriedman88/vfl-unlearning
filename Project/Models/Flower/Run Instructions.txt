@@ -1,0 +1,32 @@
+Get data first (from the repo root): python fetch_data.py mnist celeba nih --limit 10000
+
+To activate virtual environment:
+.\.venv\Scripts\Activate.ps1
+
+Main Launcher:
+run_vfl.py
+
+Run logs go to:
+logs
+
+Run MNIST:
+python .\run_vfl.py --dataset mnist -- --epochs 1
+
+Log files created:
+Get-ChildItem .\logs\mnist
+Get-Content .\logs\mnist\latest.csv
+Get-Content .\logs\run_summary.csv
+
+Run CelebA:
+python .\run_vfl.py --dataset celeba -- --epochs 1
+
+CelebA log output:
+Get-Content .\logs\celeba\latest.csv
+Get-Content .\logs\run_summary.csv
+
+Run NIH Chest X-ray14:
+python .\run_vfl.py --dataset nih -- --epochs 1
+
+Show the NIH log output:
+Get-Content .\logs\nih\latest.csv
+Get-Content .\logs\run_summary.csv

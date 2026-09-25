@@ -1,0 +1,16 @@
+# Dependencies for the Flower VFL runners.
+# Pinned to the versions in the working Flower\.venv (Python 3.13).
+# CPU torch wheels come from the PyTorch index (see ..\bootstrap.ps1).
+# Keep torch/torchvision in lockstep: torchvision 0.26.x pairs with torch 2.11.x.
+torch==2.11.0
+torchvision==0.26.0
+numpy==2.4.4
+pandas==3.0.2
+scikit-learn==1.8.0
+Pillow==12.1.1
+
+# Flower framework (used by Client-Isaac_Laptop.py / Server-Isaac_Laptop.py)
+flwr==1.27.0
+
+# Only needed by ..\fetch_data.py to download CelebA / NIH from Hugging Face
+datasets>=3.0

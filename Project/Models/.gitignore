@@ -1,0 +1,71 @@
+# ---- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---- Virtual environments (rebuild with bootstrap.ps1) --------------------
+.venv/
+.venv_*/
+venv/
+env/
+
+# ---- Datasets: never committed. Download with `python fetch_data.py` ------
+data/
+**/data/
+**/MNIST/
+**/celeba/
+**/img_align_celeba*/
+**/nih_chest_xray14/
+*.parquet
+*.idx3-ubyte
+*.idx1-ubyte
+
+# ---- Training output (written to logs_root, see config.yaml) -------------
+logs/
+**/logs/
+**/test_artifacts/
+**/run_summary.csv
+**/metrics.csv
+**/latest.csv
+**/*.tfevents.*
+**/checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# ---- Archives / backups ----------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.7z
+_to_delete/
+
+# ---- LaTeX build output (paper/) ------------------------------------------
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+paper/*.log
+
+# ---- OS / IDE junk --------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.swp
+.vscode/
+.idea/
+
+# ---- Local secrets / overrides --------------------------------------------
+.env
+.env.*
+!.env.example
+config.local.yaml

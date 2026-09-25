@@ -1,0 +1,26 @@
+SecretFlow VFL mirror setup
+
+Recommended path: Docker Desktop with the official SecretFlow container.
+
+1. Keep Docker Desktop running.
+
+2. Download the datasets once with ..\fetch_data.py (see ..\README.md).
+   They go to data_root from ..\config.yaml (default C:\691\data).
+
+3. The Docker helpers mount the Models workspace at /workspace and data_root at /data.
+
+4. Run a dataset-specific experiment from Windows:
+   - run_secretflow_mnist_docker.cmd --epochs 1 --max-train-batches 1 --max-test-batches 1
+   - run_secretflow_celeba_docker.cmd --epochs 1 --max-train-batches 1 --max-test-batches 1
+   - run_secretflow_nih_docker.cmd --epochs 1 --max-train-batches 1 --max-test-batches 1 --task-label Infiltration
+
+5. Or use the unified launcher:
+   - run_secretflow_launcher_docker.cmd mnist --epochs 1 --max-train-batches 1 --max-test-batches 1
+   - run_secretflow_launcher_docker.cmd celeba --epochs 1 --max-train-batches 1 --max-test-batches 1
+   - run_secretflow_launcher_docker.cmd nih --epochs 1 --max-train-batches 1 --max-test-batches 1 --task-label Infiltration
+
+6. Logs are written under ./logs/<dataset>/ and aggregated into ./logs/run_summary.csv
+
+Note:
+- Direct pip installation in WSL currently ran into upstream package resolution issues.
+- The official Docker image works and is the preferred runtime for this workspace.

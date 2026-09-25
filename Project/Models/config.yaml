@@ -1,0 +1,33 @@
+# Local VFL experiment config
+#
+# Shared by Flower/ and SecretFlow/. Both frameworks resolve paths through
+# vfl_paths.py, which walks up from the run script to find this file.
+#
+# Resolution order (first match wins):
+#   1. Environment variables: VFL_DATA_ROOT, VFL_LOGS_ROOT, VFL_NIH_ROOT,
+#      VFL_CELEBA_ROOT, VFL_MNIST_ROOT
+#   2. Entries in this file
+#   3. Hard-coded defaults in vfl_paths.py (C:\691\data, C:\691\logs)
+#
+# After running migrate_to_local.ps1 the defaults below should already be
+# correct. Edit the values here if you put the data somewhere else.
+#
+# Paths may be absolute (C:\691\data) or relative to this file (./data).
+# Forward slashes work too, Python resolves both.
+
+# Where the three datasets live. Each framework will look for these
+# subfolders under data_root:
+#   data_root/celeba/
+#   data_root/MNIST/
+#   data_root/nih_chest_xray14/
+data_root: C:\691\data
+
+# Where training metrics / run summaries / test artifacts are written.
+# Keeping this off OneDrive avoids thrashing during long runs.
+logs_root: C:\691\logs
+
+# Optional per-dataset overrides. Uncomment and edit only if a dataset
+# lives outside data_root (e.g. NIH on a separate drive).
+# celeba_root: D:\datasets\celeba
+# mnist_root:  D:\datasets\MNIST
+# nih_root:    D:\datasets\nih_chest_xray14

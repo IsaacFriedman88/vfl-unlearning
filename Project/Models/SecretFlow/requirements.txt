@@ -1,0 +1,19 @@
+# Dependencies for the local SecretFlow-mirror VFL runners.
+#
+# The local runners live in this folder and do NOT require the real
+# `secretflow` package - they accept --skip-secretflow-check to run without it.
+# The full `secretflow` install is huge (ray, jax, grpc, ...) and is only needed
+# if you want to exercise validate_secretflow_runtime(). Use the Docker image in
+# run_secretflow_docker.ps1 if you need the real stack.
+#
+# Pinned to match Flower\requirements.txt so both frameworks train on the same stack.
+# CPU torch wheels come from the PyTorch index (see ..\bootstrap.ps1).
+torch==2.11.0
+torchvision==0.26.0
+numpy==2.4.4
+pandas==3.0.2
+scikit-learn==1.8.0
+Pillow==12.1.1
+
+# Only needed by ..\fetch_data.py to download CelebA / NIH from Hugging Face
+datasets>=3.0
